@@ -1,0 +1,17 @@
+The source folder or "src" folder is where we will write all of our svelte code .the main.js file is used by svelte so that it can kick start the project,
+the app.svelte file is a svelte component and a root component however this is just a dummy component and is always available whenever you first make a
+new svelte project.
+
+The .gitignore is for version controll and this is used so that we don't need to upload certain files onto git like node modules, the public builds etc ...
+
+The package.json file is used so that we know what packages we need to install for the project.
+
+We also have a readme file for some helpful tips on how to use svelte.
+
+The rollup.config.js is like a webpack file where all the code is already done to watch out file, configure our code and bundles to our output files
+and no changes are needed for it.
+
+When we build our web app, svelte compiles our code and dumps it in the public folder
+
+First of all we need to install the dependencies (command:- npm install)
+To view all your changes you need to setup a local development server (command:- npm run dev)
