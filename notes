@@ -56,3 +56,23 @@ The above code is a basic example for how the svelte targets and injects into th
 The "new App({ ... })" is called an instance and inside this instance is where you will find and object.
 
 generally we use the body tag as most of the content is kept there in an html page
+
+
+We always pass in function references rather then invoking them in run time
+
+sample of function reference:-
+<button on:click="{changeColor}">Button Name</button>
+
+sample of function invoking:-
+<button on:click="{changeColor()}">Button Name</button> ------------->  WE DO NOT DO THIS OKAY 
+
+One-way binding:
+This is where the change isn't reflected inside the input box
+example:
+<input type="text" name="" id="" on:input="{typeColor}">
+
+
+Two-way binding:
+This is where the change is reflected on the input box
+example:
+<input type="text" value="{beltColor}" on:input="{typeColor}">

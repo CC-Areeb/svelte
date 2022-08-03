@@ -1,9 +1,18 @@
 <script>
 	let name = 'Yoshi';
-	let beltColor = 'black';
+	let beltColor = 'orange';
 
 	const changeColor = () => {
-		beltColor = 'aqua'
+		beltColor = 'red'
+	}
+
+	/** 
+	 * @param event
+	 * when we want an event like something happening on a button click then
+	 * we pass a parameter inside the function to fire the event
+	 */
+	const typeColor = (event) => {
+		beltColor = event.target.value;
 	}
 </script>
 
@@ -11,16 +20,28 @@
 	<h1>
 		Hello {name}!
 	</h1>
-	<p>
-		I am Learning Svelte :)
+
+	<!-- 
+		we can dynamically change colors by asking users to write their colors 
+	-->
+
+	<p style="color: {beltColor}">
+		{beltColor}
 	</p>
 
-	<p>
-		{beltColor} belt :)
-	</p>
+	<!-- 
+		by using the value attribute, we are binding this input with the default color we had defined in the code
+	-->
 
 	<p>
-		To change belt color please press this button <button on:click="{changeColor}">Change color</button>
+		To change belt color please press this button <br><br> <button on:click="{changeColor}">Change color</button>
+		<!--
+			this is long way for 2 way binding and we will use a shorthand for 2 way binding
+			for 1 way data binding use the long way
+			<input type="text" value="{beltColor}" on:input="{typeColor}"> 
+		-->
+
+		<input type="text" bind:value={beltColor}>
 	</p>
 
 	<p>
@@ -31,7 +52,7 @@
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
+			padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
 	}
