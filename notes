@@ -15,3 +15,44 @@ When we build our web app, svelte compiles our code and dumps it in the public f
 
 First of all we need to install the dependencies (command:- npm install)
 To view all your changes you need to setup a local development server (command:- npm run dev)
+
+components are building blocks of a website and can be put together and output to the dom for creating a whole website
+
+Examples for a component:
+
+1 - header
+2 - footer
+3 - contact from
+4 - modal
+5 - pop up
+
+ETC ...
+
+The .svelte is the extension
+
+App.svelte folder:
+
+Inside each component we have 3 different things 
+
+script for component logic, html that is injected in the DOM and the style for applying styling to our html
+
+The main.js file is used to kick start the app, it has the code that runs first and then set everything up for used.
+
+"
+import App from './App.svelte';
+
+const app = new App({
+	target: document.body,
+	props: {
+		name: 'world'
+	}
+});
+
+export default app;
+"
+
+The above code is a basic example for how the svelte targets and injects into the dom or part of the DOM.
+
+The "new App({ ... })" is called an instance and inside this instance is where you will find and object.
+
+generally we use the body tag as most of the content is kept there in an html page
