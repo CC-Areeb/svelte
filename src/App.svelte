@@ -1,5 +1,10 @@
 <script>
-	export let name;
+	let name = 'Yoshi';
+	let beltColor = 'black';
+
+	const changeColor = () => {
+		beltColor = 'aqua'
+	}
 </script>
 
 <main>
@@ -8,6 +13,14 @@
 	</h1>
 	<p>
 		I am Learning Svelte :)
+	</p>
+
+	<p>
+		{beltColor} belt :)
+	</p>
+
+	<p>
+		To change belt color please press this button <button on:click="{changeColor}">Change color</button>
 	</p>
 
 	<p>
