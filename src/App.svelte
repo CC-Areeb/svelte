@@ -1,6 +1,7 @@
 <script>
-	let name = 'Yoshi';
-	let beltColor = 'orange';
+	let first_name = 'Areeb';
+	let last_name = 'Malik';
+	let beltColor = 'red';
 
 	const changeColor = () => {
 		beltColor = 'red'
@@ -17,17 +18,14 @@
 </script>
 
 <main>
-	<h1>
-		Hello {name}!
-	</h1>
-
 	<!-- 
 		we can dynamically change colors by asking users to write their colors 
 	-->
 
-	<p style="color: {beltColor}">
-		{beltColor}
-	</p>
+	<!-- this is how we show output -->
+	<h1 style="color: {beltColor}">
+		{first_name} {last_name} - {beltColor}
+	</h1>
 
 	<!-- 
 		by using the value attribute, we are binding this input with the default color we had defined in the code
@@ -43,6 +41,34 @@
 
 		<input type="text" bind:value={beltColor}>
 	</p>
+
+
+	<label for="first_name">
+		First name
+		<input type="text" id="first_name" bind:value={first_name}>
+	</label>
+	<br>
+
+	<label for="last_name">
+		Last name
+		<input type="text" id="last_name" bind:value={last_name}>
+	</label>
+	<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<p>
 		for docs, <a href="https://svelte.dev/tutorial/basics" target="__blank">click me!</a>
