@@ -76,3 +76,59 @@ Two-way binding:
 This is where the change is reflected on the input box
 example:
 <input type="text" value="{beltColor}" on:input="{typeColor}">
+
+
+
+
+LOOPS:-
+
+We use loops to cycle through some data like an array and output an html template for each 
+item in that array of data.
+
+example:-
+
+this is a sample array of some random data
+"
+let items = [
+		{name: 'Yoshi', belt_color: 'black', age: '28', id: '1'},
+		{name: 'Mario', belt_color: 'orange', age: '28', id: '2'},
+		{name: 'Luigi', belt_color: 'red', age: '28', id: '3'},
+		{name: 'Toad', belt_color: 'yellow', age: '28', id: '4'}
+	];
+"
+Now we will use an each loop, similarly like PHP's foreach loop to loop through each item
+and display dynamically rather then hard coding it manually.
+
+"
+{#each items as item}
+	<div>
+			<h1>{item.name}</h1>
+			<p>
+				Belt color is {item.belt_color} and I am {item.age} years old
+			</p>
+		</div>
+{/each}
+"
+the 'items' array is now passing its data in the 'item' variable as 1 single item 
+the html is used as a template to show the data using css and other means.
+
+
+We can also pass in a key property inside the each loops
+
+"
+{#each items as item (items.id)}
+	<div>
+			<h1>{item.name}</h1>
+			<p>
+				Belt color is {item.belt_color} and I am {item.age} years old
+			</p>
+		</div>
+{/each}
+"
+
+the output will be the same but now svelte is linking each set of data in the array
+with each div container to make it unique. This is useful for manipulating data.
+
+We can also add and 'else clause' with the each loop and this will also function like 
+a conditional statement where if the above sameple array was empty then it will fire
+the else condition and display a different result.
