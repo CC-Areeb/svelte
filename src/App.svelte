@@ -8,22 +8,20 @@
 </script>
 
 <main>
-	<!-- we will use a loop to cycle and display the array data -->
-	{#each items as item (items.id)}
-		<!-- now we difine the html template for the output -->
-		<div>
-			<h1>{item.name}</h1>
-			<p>
-				Belt color is {item.belt_color} and I am {item.age} years old
-			</p>
-		</div>
-		{:else}
-			<!-- else content here -->
-			<p>
-				We have no data here ... (!-_-)
-			</p>
-	{/each}
+{#each items as item}
+	<h1>{item.name}</h1>
+	<p>
+		Belt color is {item.belt_color}
+	</p>
+	<h5>
+		Age: {item.age}
+	</h5>
+{:else}
+	<h1>No data!!!</h1>
+{/each}
 </main>
+
+
 
 
 <style>
