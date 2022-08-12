@@ -132,3 +132,27 @@ with each div container to make it unique. This is useful for manipulating data.
 We can also add and 'else clause' with the each loop and this will also function like 
 a conditional statement where if the above sameple array was empty then it will fire
 the else condition and display a different result.
+
+
+
+Inline Event Handlers: 
+
+we can write inline functions like for deleting a record and bind that function in a button
+and when ever the on:click event is triggered, the function will be called and the code inside
+the function will fire.
+
+we can write inline function as shown below:
+"
+<button on:click={ ()=> deleteButton(item.name) }>Delete</button>
+"
+
+notice that whenever we write a function we have to use the {} braces but in the inline we 
+don't need to.
+
+Now to delete a record, we can check if the data is correct and then filter it out the required data	
+we need to call callback function which will check the details before deleting the record
+
+array_name = array_name.filter( (data) => data.id != id )
+
+We are re-assigning the data based on the result of the filter condition
+

@@ -5,24 +5,27 @@
 		{name: 'Luigi', belt_color: 'red', age: '28', id: '3'},
 		{name: 'Toad', belt_color: 'yellow', age: '28', id: '4'}
 	];
+
+
+	const deleteButton = (id) => {
+		// deleting a record
+		// we will fire a callback function
+		items = items.filter((item) => item.id != id);
+	}
 </script>
 
 <main>
 {#each items as item}
-	<h1>{item.name}</h1>
-	<p>
-		Belt color is {item.belt_color}
-	</p>
-	<h5>
-		Age: {item.age}
-	</h5>
+	<div>
+		<h1>{item.name}</h1>
+		<p>Belt color is {item.belt_color}</p>
+		<h5>Age: {item.age}</h5>
+		<button on:click={ ()=> deleteButton(item.name) }>Delete</button>
+	</div>
 {:else}
 	<h1>No data!!!</h1>
 {/each}
 </main>
-
-
-
 
 <style>
 	main {
