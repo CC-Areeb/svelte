@@ -20,7 +20,7 @@
 		<h1>{item.name}</h1>
 		<p>Belt color is {item.belt_color}</p>
 		<h5>Age: {item.age}</h5>
-		<button on:click={ ()=> deleteButton(item.name) }>Delete</button>
+		<button on:click={ ()=> deleteButton(item.id) }>Delete</button>
 	</div>
 {:else}
 	<h1>No data!!!</h1>
