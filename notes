@@ -156,3 +156,15 @@ array_name = array_name.filter( (data) => data.id != id )
 
 We are re-assigning the data based on the result of the filter condition
 
+
+
+Conditional Statements:
+
+We use conditional statements to manipulate the data we show to the users. Let's say we have 2 
+different users, "admin" and "end-user". Both of these users have access to "Facebook" yet 
+when they log in, the "admin" is redirected to the admin page whereas the "end-user" is 
+redirected to the other page like news feed and more so this is done by passing the input data
+by these 2 users through some conditions and based on the conditions both users are taken to 
+a different locations on the same application.
+
+In svelte we use checks like "if checks" to apply conditions
