@@ -2,8 +2,16 @@
 	import Modal from "./Modal.svelte";
 </script>
 
+
+
 <!-- a svelte component -->
-<Modal />
+<Modal
+offer = "Limited time offer"
+price = 20
+isPromo = {true}
+/>
+
+
 
 <main>
 	<p>

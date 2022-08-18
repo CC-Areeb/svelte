@@ -235,3 +235,56 @@ your browser.
 If you want to see how this works, go to the "bundle.css" in the public directory and you
 will see that each class will have a unique string which makes the styles component
 specific.
+
+
+
+
+"Props"
+
+We can pass different data dynamically by using props so that we can use the same 
+component else where with different data at different pages. We can pass in the props
+directly in the component tag itself 
+
+Example:
+// some code
+"<Sample prop="Hello, I am a prop" />"
+// some code
+
+As we can see, props are easily passed like that in svelte. To use that prop, we need to
+declare it as a variable in that component inside the script tags as shown below.
+
+"
+inside the sample component
+
+<script>
+	export let prop;
+</script>
+
+
+<p>
+	{prop}
+</p>
+"
+
+Note that the exporting variable and the prop name are same and it is required that they
+are same.
+
+export means that it is being sent from the outside and set as a prop. We can pass booleans 
+as well as a prop but we have to write true or false inside the braces "{}".
+
+
+Summery:
+
+Step 1- 
+Declare a prop as a variable in the script tags on a svelte component with an export keyword as shown below 
+"
+export let prop = 'I am a prop';
+export let prop2;
+export let prop3 = false;
+"
+
+Step 2-
+Pass in the prop in the component tag with a string, integer or boolean and the prop name and the variable name has to be the same as shown below
+"
+<Sample prop prop2 = "I am a sample" prop3 = {true/false}/>
+"

@@ -1,13 +1,29 @@
 <script>
+    export let offer;
+    export let price;
     let ModalShow = true;
-    let isPromo = true;
+    export let isPromo = false;
 </script>
+
+
+
+<!-- <div class="show-modal">
+    <button type="submit">
+        Show offers
+    </button>
+</div> -->
+
+
 
 {#if ModalShow}
     <div class="modal-backdrop" class:promo={isPromo}>
         <div class="modal-preview">
             <p>
-                Sign up for more
+                {offer}
+            </p>
+
+            <p class="amount-of-offers">
+                {price}
             </p>
 
             <button class="sign-up-btn">
@@ -16,6 +32,10 @@
         </div>
     </div>
 {/if}
+
+
+
+
 
 <style>
     .modal-backdrop
@@ -51,5 +71,18 @@
     p
     {
         font-size: 2rem;
+    }
+
+    .amount-of-offers
+    {
+        background: crimson;
+        margin: 20px 160px;
+        border-radius: 50%;
+    }
+
+    .show-modal
+    {
+        text-align: center;
+        margin-top: 6rem;
     }
 </style>
