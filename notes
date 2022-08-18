@@ -80,7 +80,10 @@ example:
 
 
 
+
+
 "Loops"
+
 We use loops to cycle through some data like an array and output an html template for each 
 item in that array of data.
 
@@ -134,6 +137,8 @@ the else condition and display a different result.
 
 
 
+
+
 "Inline Event Handlers:" 
 
 we can write inline functions like for deleting a record and bind that function in a button
@@ -169,6 +174,8 @@ a different locations on the same application.
 In svelte we use checks like "if checks" to apply conditions
 
 
+
+
 "Components in svelte"
 
 Normally a svelte website will have many components such as modal, header, footer, sidebar, navigation etc,
@@ -202,3 +209,29 @@ it to load.
 // some code
 
 
+
+
+
+"Global and Local CSS"
+We have 2 ways of applying CSS, one is through defining styles in the global css and 
+the other is through locally in the components
+
+"global css"
+The global css has already some pre-defined css when we create a svelte project, it's upto
+us to keep those styles or not. When we apply styles to this, this will be applied to all
+tags or classes in the entire project.
+
+The "index.html" is the file that is served to the browser.
+
+The styles we see in the other component folders like the App.svelte will only be applied in 
+that specific svelte file, even if you have other svelte folders with the same tag, this syles
+will not be applied and you will have to define styles again for that tag.
+
+
+In short, if you want to style once and use everywhere then use the global css otherwise
+style in the component to apply different styles for the same tag in different places in
+your browser.
+
+If you want to see how this works, go to the "bundle.css" in the public directory and you
+will see that each class will have a unique string which makes the styles component
+specific.

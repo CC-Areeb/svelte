@@ -44,12 +44,6 @@ input:disabled {
 	color: #ccc;
 }
 
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
 button:disabled {
 	color: #999;
 }
@@ -61,3 +55,29 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+/* My extra styles */
+
+
+body
+{
+	color: #777;
+	background: #eee;
+	padding: 0;
+	margin: 0;
+}
+
+h4
+{
+	color: darkcyan;
+}
+
+button
+{
+	background: whitesmoke;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+
+/* My extra styles */
