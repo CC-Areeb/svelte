@@ -284,7 +284,40 @@ export let prop3 = false;
 "
 
 Step 2-
-Pass in the prop in the component tag with a string, integer or boolean and the prop name and the variable name has to be the same as shown below
+Pass in the prop in the component tag with a string, integer or boolean and the prop name and the variable
+name has to be the same as shown below
 "
 <Sample prop prop2 = "I am a sample" prop3 = {true/false}/>
 "
+
+If your prop name and the variable name in the other svelte component is same, you can directly pass this
+inside the braces with the name of the variable.
+
+
+"ModalShow = !ModalShow"
+This will ensure that now the value is reversed
+
+
+
+
+
+"Event Forwarding"
+We can forward events from one component to another by not definng anything in the first component and using
+that same function in the other component with the parameter
+
+Example:-
+
+" <div class="some-class" class:variable={yourFunction} on:click>" ----> component 1
+
+"
+<!-- a svelte component -->
+<Modal
+offer = "Limited time offer"
+price = 20
+isPromo = {true}
+{ModalShow}
+on:click={openModal} 
+/>
+" ----> component 2
+This has to be passed in the component tag 
+As you can see, we just leave the event and then forward it into the other component

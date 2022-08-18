@@ -1,7 +1,7 @@
 <script>
     export let offer;
     export let price;
-    let ModalShow = true;
+    export let ModalShow = false;
     export let isPromo = false;
 </script>
 
@@ -16,7 +16,7 @@
 
 
 {#if ModalShow}
-    <div class="modal-backdrop" class:promo={isPromo}>
+    <div class="modal-backdrop" class:promo={isPromo} on:click>
         <div class="modal-preview">
             <p>
                 {offer}

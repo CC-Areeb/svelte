@@ -1,5 +1,11 @@
 <script>
 	import Modal from "./Modal.svelte";
+
+	let ModalShow = false;
+
+	const openModal = () => {
+		ModalShow = !ModalShow;
+	}
 </script>
 
 
@@ -9,24 +15,14 @@
 offer = "Limited time offer"
 price = 20
 isPromo = {true}
+{ModalShow}
+on:click={openModal} 
 />
 
 
 
 <main>
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero rem cumque
-		eaque ea facere vel ut temporibus accusantium maxime? Praesentium rerum,
-		animi similique delectus eveniet veniam soluta aperiam doloremque
-		molestias ipsam corrupti est voluptas non quasi ducimus libero fuga at
-		iure nostrum repudiandae sequi. Ipsa dicta debitis minus explicabo
-		voluptatem assumenda rem id molestias nam quas, quis asperiores
-		perspiciatis veritatis recusandae quae sed minima aspernatur culpa optio
-		quisquam aut. Provident explicabo voluptas in tempore incidunt eius
-		eligendi dolorem commodi, esse iste repudiandae distinctio dignissimos
-		maiores voluptatibus molestiae necessitatibus id autem, aspernatur alias
-		dolor? Voluptatum ab corrupti consequatur, odit corporis distinctio?
-	</p>
+	<button on:click={openModal}>Click me!</button>
 </main>
 
 <style>
