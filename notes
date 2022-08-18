@@ -80,8 +80,7 @@ example:
 
 
 
-LOOPS:-
-
+"Loops"
 We use loops to cycle through some data like an array and output an html template for each 
 item in that array of data.
 
@@ -135,7 +134,7 @@ the else condition and display a different result.
 
 
 
-Inline Event Handlers: 
+"Inline Event Handlers:" 
 
 we can write inline functions like for deleting a record and bind that function in a button
 and when ever the on:click event is triggered, the function will be called and the code inside
@@ -158,7 +157,7 @@ We are re-assigning the data based on the result of the filter condition
 
 
 
-Conditional Statements:
+"Conditional Statements"
 
 We use conditional statements to manipulate the data we show to the users. Let's say we have 2 
 different users, "admin" and "end-user". Both of these users have access to "Facebook" yet 
@@ -168,3 +167,38 @@ by these 2 users through some conditions and based on the conditions both users 
 a different locations on the same application.
 
 In svelte we use checks like "if checks" to apply conditions
+
+
+"Components in svelte"
+
+Normally a svelte website will have many components such as modal, header, footer, sidebar, navigation etc,
+so we will have to make a tree where the root component will be the App.svelte and all other components are
+linked with it in a tree like structure and the App.svelte will be injected in the dom by the main.js file.
+
+By using a component tree, we can ensure that the distribution of out html is done the we want. The reasons
+why we do this are because firstly we want to keep our code clean, easily readable and modular and since we 
+have divided up our components, we can reuse them in other places we want.
+
+When we make a new component and write the code, we need to import it in the App.svelte file so we do it by
+going App.svelte and in the top inside the script tags we import the component
+
+Example:
+
+"Sample.svelte ------> component example"
+
+"
+<script>
+	import Sample from './Sample.svelte';
+</script>
+"
+The "Sample" is the name we have given to the component as a reference name 
+so when we want to use this, we can write the reference name inside the self-closing
+tags and that will bring the content of that component in the main App.svelte
+file and it has to be outside the script tags and in the place where you want 
+it to load.
+
+// some code
+"<Sample/>"
+// some code
+
+
