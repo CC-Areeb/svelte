@@ -11,13 +11,17 @@
 
 
 <!-- a svelte component -->
-<Modal
-offer = "Limited time offer"
-price = 20
-isPromo = {true}
-{ModalShow}
-on:click={openModal} 
-/>
+<Modal isPromo = {true} {ModalShow} on:click={openModal}>
+	<h3 slot="title">
+		Add a new person
+	</h3>
+
+	<form class="modal-form">
+		<input type="text" name="name" id="name" placeholder="Name">
+		<input type="text" name="belt_color" id="belt_color" placeholder="Belt color">
+		<button>Add person</button>
+	</form>
+</Modal>
 
 
 
@@ -26,18 +30,18 @@ on:click={openModal}
 </main>
 
 <style>
+
+	.modal-form
+	{
+		display: flex;
+		flex-direction: column;
+	}
+
 	main {
 		text-align: center;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 	@media (min-width: 640px) {
