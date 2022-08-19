@@ -16,7 +16,7 @@
 
 
 {#if ModalShow}
-    <div class="modal-backdrop" class:promo={isPromo} on:click>
+    <div class="modal-backdrop" class:promo={isPromo} on:click|self>
         <div class="modal-preview">
             <p>
                 {offer}

@@ -321,3 +321,27 @@ on:click={openModal}
 " ----> component 2
 This has to be passed in the component tag 
 As you can see, we just leave the event and then forward it into the other component
+
+
+
+"Event Modifiers"
+
+These are modifiers that can be tagged onto the events like the "on:click" event on certain
+elements. Some event modifiers are shown below
+
+The following modifiers are available:
+
+preventDefault — calls event.preventDefault() before running the handler
+stopPropagation — calls event.stopPropagation(), preventing the event reaching the next element
+passive — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
+nonpassive — explicitly set passive: false
+capture — fires the handler during the capture phase instead of the bubbling phase
+once — remove the handler after the first time it runs
+self — only trigger handler if event.target is the element itself
+trusted — only trigger handler if event.isTrusted is true. I.e. if the event is triggered by a user action.
+
+To actually use these event modifiers, we have to code them as shown below
+
+"
+<button on:submit|preventDefault={someFunction}>
+"
