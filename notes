@@ -345,3 +345,75 @@ To actually use these event modifiers, we have to code them as shown below
 "
 <button on:submit|preventDefault={someFunction}>
 "
+
+
+
+"Slots"
+
+We use slots in places where we want to display HTML but not by passing them through as a prop
+instead of passing them as a prop, we use the slots way. Slots allow us to pass child content 
+into a component and render that content inside that component.
+
+To render the child elements in the other component, we can use the slot tags. Example shown below:
+
+"
+App component:-
+
+<Modal isPromo = {true} {ModalShow} on:click={openModal}>
+	<h3>
+		Add a new person
+	</h3>
+
+	<form>
+		<input type="text" name="name" id="name" placeholder="Name">
+		<input type="text" name="belt_color" id="belt_color" placeholder="Belt color">
+		<button>Add person</button>
+	</form>
+</Modal>
+
+
+Modal component:-
+
+
+{#if ModalShow}
+    <div class="modal-backdrop" class:promo={isPromo} on:click|self>
+        <div class="modal-preview">
+            <button class="sign-up-btn">
+                sign-up
+            </button>
+            <slot></slot>            
+        </div>
+    </div>
+{/if}
+"
+
+Summery:-
+
+STEP 1:-
+Make a opening and closing tags of the component you have imported as a tag
+"  <Modal> some html template </Modal>  "
+
+STEP 2:-
+When you are done with the template/child template, then you need to activate this as a slot
+because you should not pass the whole template as a prop.
+
+"  
+<div>
+	<slot></slot>
+</div>  
+"
+
+This slot tag will now look for the component tags and whatever content is inside that 
+component tags are, it will be displayed where the slot is called. We can also give named slots
+by typing the slot keyword inside the element and then naming it as shown below
+
+"
+<div slot="slot_name"> some content </div>
+"
+
+and now when you want to see the output of your slot you can just pass the name attribute 
+and type the name of that slot that you have given as shown below
+
+"
+<slot name="slot_name"></slot>
+"
