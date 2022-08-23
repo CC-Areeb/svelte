@@ -417,3 +417,100 @@ and type the name of that slot that you have given as shown below
 "
 <slot name="slot_name"></slot>
 "
+
+
+"Forms"
+In JavaScript when we have a number from the input field with type number, that number is 
+converted to string due to JavaScript's loose typing nature but in svelte when we bind 
+the input, it will make sure that the type is also of that input type so for example 
+when we say that "<input type="number">", svelte will ensure that when it is binded,
+this is remain a number and will not change its type to string.
+
+When we are dealing with forms, we can use events like submit events because clicking
+on a button will trigger a submit inside the form. The forms have a basic default 
+feature of being refreshed whenever a form is filled so we can use the preventDefault 
+event modifier to stop the form from reloading at every submit.
+
+For checkboxes, the process is similar where we bind but intead of "bind:value", we
+will use "bind:checked". We can then pass variables as references like we did for the 
+input type text.
+
+The bind:checked method is okay for small forms with very few checkboxes however when you
+are dealing with big forms with quite a large amount of checkboxes the it is not wise to
+use the bind method, instead we will use the grouping way to handle this. For that we will
+have to first define an empty array. By using  group, we can push the values of the
+checkboxes into the array.
+
+
+NOTE:-
+
+How to use bind:checked shown below
+
+"
+<script>
+	let skill_1 = false;
+	let skill_2 = false;
+	let skill_3 = false;
+	let skill_4 = false;
+</script>
+
+<div id="skill_set">
+	<label for="">Skill 1
+		<input type="checkbox" bind:checked={skill_1}>
+	</label>
+	
+	<label for="">Skill 2
+		<input type="checkbox" bind:checked={skill_2}>
+	</label>
+
+	<label for="">Skill 3
+		<input type="checkbox" bind:checked={skill_3}>
+	</label>
+
+	<label for="">Skill 4
+		<input type="checkbox" bind:checked={skill_4}>
+	</label>
+
+	const submitForm = () => {
+        console.log(name, belt_color, age, skill_1, skill_2, skill_3, skill_4);
+    }
+	
+</div>
+"
+
+
+How to use bind:group shown below
+
+"
+<script>
+	let skills = [];
+
+	const submitForm = () => {
+        console.log(name, belt_color, age, skills);
+    }
+</script>
+
+<div id="skill_set">
+        <label for="">Skill 1
+            <input type="checkbox" bind:group={skills} value="skill_1">
+        </label>
+        
+        <label for="">Skill 2
+            <input type="checkbox" bind:group={skills} value="skill_2">
+        </label>
+
+        <label for="">Skill 3
+            <input type="checkbox" bind:group={skills} value="skill_3">
+        </label>
+
+        <label for="">Skill 4
+            <input type="checkbox" bind:group={skills} value="skill_4">
+        </label>
+    </div>
+"
+
+When using a select box, the bind:value attribute will be set to the 
+select tag because when the user will select an option from the
+dropdown menu, that option will be selected as the value of the select
+tag and in the JS where we have defined the variable, that variable 
+will be updated according to the option selected.
