@@ -514,3 +514,104 @@ select tag because when the user will select an option from the
 dropdown menu, that option will be selected as the value of the select
 tag and in the JS where we have defined the variable, that variable 
 will be updated according to the option selected.
+
+
+
+
+"Dispatching Custom Events"
+When we use event forwarding, we don't pass data but only the event itself
+so to send data we cannot use event forwarding. To send data from child
+component to the parent component we need to send a custom event.
+
+To use custom event dispatch, we first need to import it from the svelte
+library and invoke it as a function as shown below
+
+"
+import { createEventDispatcher } from "svelte";.
+
+let dispatch = createEventDispatcher();
+"
+
+We can make a object where we will store all the data for the users as 
+shown below
+
+"
+const person = {
+	name: name,
+	belt_color: belt_color,
+	age: age,
+	skills: skills,
+	id: Math.random()
+}
+"
+
+NOTE :- 
+If the name of the variable and the name of the property are same so we can
+use the shorthand method as shown below
+
+"
+const person = {
+	name,
+	belt_color,
+	age,
+	skills,
+	id: Math.random()
+}
+"
+
+Now when we want to send the custom event to the parent component, we first 
+call the funtion and pass in 2 parameters, the first one is the event and the
+second is the data that we are sending like we are sending it through an 
+object.
+
+To call the dispatch event in the parent component, we will use the "on" keyword
+and add the event name and pass in the function reference and pass in the event
+parameter as shown below
+
+"
+const addPerson = (event) => {}
+
+
+<AddPersonForm on:addPerson={addPerson} />
+"
+
+To push the new values in the array we need to reassign it as it is the only way
+svelte can reassign new values inside an existing storage like an array.
+
+We can add new items in an old array of data by using the spread operator in svelte
+as shown below
+
+"
+Exisiting array :-
+
+let people = [
+		{name: 'Yoshi', belt_color: 'black', age: '28', id: '1'},
+		{name: 'Mario', belt_color: 'orange', age: '28', id: '2'},
+		{name: 'Luigi', belt_color: 'red', age: '28', id: '3'},
+		{name: 'Toad', belt_color: 'yellow', age: '28', id: '4'}
+	];
+
+How to add more data in the above existing array :-
+
+const addPerson = (event) =>{
+		const person = event.detail;
+		people = [person, ...people]; ------> the 3 dots is the spread operator
+	}
+	
+	{#each people as person (person.id)}
+		<div>
+			<h1>{person.name}</h1>
+			<p>
+				Belt color is {person.belt_color} and I am {person.age} years old
+			</p>
+		</div>
+		{:else}
+			<p>
+				We have no data here ... (!-_-)
+			</p>
+	{/each}
+"
+We can loop through using the each loop to show all the results 
+
+NOTE :-
+The function name can be anything ...
