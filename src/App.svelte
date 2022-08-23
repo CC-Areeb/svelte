@@ -1,5 +1,6 @@
 <script>
 	import Modal from "./Modal.svelte";
+	import AddPersonForm from "./AddPersonForm.svelte";
 
 	let ModalShow = false;
 
@@ -12,15 +13,7 @@
 
 <!-- a svelte component -->
 <Modal isPromo = {true} {ModalShow} on:click={openModal}>
-	<h3 slot="title">
-		Add a new person
-	</h3>
-
-	<form class="modal-form">
-		<input type="text" name="name" id="name" placeholder="Name">
-		<input type="text" name="belt_color" id="belt_color" placeholder="Belt color">
-		<button>Add person</button>
-	</form>
+	<AddPersonForm/>
 </Modal>
 
 
@@ -30,13 +23,6 @@
 </main>
 
 <style>
-
-	.modal-form
-	{
-		display: flex;
-		flex-direction: column;
-	}
-
 	main {
 		text-align: center;
 		padding: 1em;
